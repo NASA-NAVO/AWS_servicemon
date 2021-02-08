@@ -1,0 +1,6 @@
+30  0,6,12,18 * * * /home/ServiceMon/AWS/run_region.sh us-west-2      >> /tmp/ServiceMon.debug 2>&1
+30  1,7,13,19 * * * /home/ServiceMon/AWS/run_region.sh us-east-1      >> /tmp/ServiceMon.debug 2>&1
+30  2,8,14,20 * * * /home/ServiceMon/AWS/run_region.sh sa-east-1      >> /tmp/ServiceMon.debug 2>&1
+30  3,9,15,21 * * * /home/ServiceMon/AWS/run_region.sh eu-west-3      >> /tmp/ServiceMon.debug 2>&1
+30 4,10,16,22 * * * /home/ServiceMon/AWS/run_region.sh ap-northeast-1 >> /tmp/ServiceMon.debug 2>&1
+30 5,11,17,23 * * * /home/ServiceMon/AWS/run_region.sh ap-southeast-2 >> /tmp/ServiceMon.debug 2>&1
