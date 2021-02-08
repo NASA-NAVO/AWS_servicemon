@@ -1,5 +1,9 @@
 # AWS_servicemon
 
+*The purpose of this repo is to illustrate an efficient way to manage a large
+number of AWS EC2 instances around the world without resorting to fancy packages
+to do so.*
+
 The NAVO ServiceMon application is Python code that monitors a configurable set
 of TAP (Table Access Protocol) and Cone Search services around the world.  These
 protocols were developed by the International Virtual Observatory Alliance (IVOA)
