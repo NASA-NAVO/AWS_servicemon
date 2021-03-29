@@ -28,7 +28,8 @@ class check_region():
 
         # Connect to Region
 
-        region_client = boto3.client('ec2', region_name=region)
+        region_client   = boto3.client  ('ec2', region_name=region)
+        region_resource = boto3.resource('ec2', region_name=region)
 
 
         #--------------------------------------------------------------
@@ -46,12 +47,24 @@ class check_region():
                     }
                 ])
 
-            instances = response['Reservations'][0]['Instances']
+            reservations = response['Reservations']
 
-            for instance in instances:
-                instance_id = instance['InstanceId']
+            if len(reservations) == 0:
+                print('No "NAVO" instances.')
 
-                print('Instance: ' + instance_id)
+            for reservation in reservations:
+
+                instances = reservation['Instances']
+
+                for instance in instances:
+
+                    instance_id = instance['InstanceId']
+
+                    instance_object = region_resource.Instance(instance_id)
+
+                    state = instance['State']['Name']
+
+                    print('Instance: ' + instance_id + ' [' + state + ']')
 
         except:
             print('No "NAVO" instances.')
