@@ -17,10 +17,18 @@ This can be done using the AWS console but after doing this for half a dozen cen
 and updating it several times as the code evolves, the manual approach can become
 quite taxing.  
 
-There are two levels of automation that we can use.  AWS provides a set of command-line
-tools (called the AWS CLI) that can be incorporated into general shell scripts.  These
-are quite complete.  They are written in Python and are based on a lower-level Python
-library which can itself be used directly.
+The real difference between using the cloud for jobs like this and using your own machines
+is not in the programming but in the cost model.  When you buy your own machines the cost
+is up-front; after that you are already committed and might as well use those machines as
+fully as you can.  On the cloud, resources are incremental, so the primary concern is to
+structure jobs so as to use machines in as brief a set of increments as possible and 
+turn them "off" in between.
+
+There are two levels of automation that we can use to achieve this control.  AWS provides a 
+set of command-line tools (called the AWS CLI) that can be incorporated into general shell 
+scripts.  These are quite complete.  They are written in Python and are based on a lower-level 
+Python library which can itself be used directly.  For full control, this is the approach to
+take.
 
 This library is called "boto3" (more accurately, both boto3 and AWS CLI are built on
 "botocore").  It allows us to fully programs the interaction, with exception 
